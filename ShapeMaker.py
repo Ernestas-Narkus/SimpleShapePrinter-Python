@@ -1,7 +1,7 @@
 from enum import Enum
 # shape maker: square, triangle, circle
 
-class Shape(Enum)
+class Shape(Enum):
     SQUARE = 1
     TRIANGLE = 2 
     CIRCLE = 3
@@ -12,7 +12,7 @@ def get_answer(mode, message):
         try:
             answer = int(input(message))
             if mode == "Shape":
-                if answer == Shape.SQUARE or answer == Shape.TRIANGLE or answer == Shape.CIRCLE:
+                if answer == Shape.SQUARE.value or answer == Shape.TRIANGLE.value or answer == Shape.CIRCLE.value:
                     answered = True
                 else:
                     print("Pick one of the options")
@@ -29,7 +29,7 @@ def get_shape():
     return shape
         
 def get_size():
-    size = get_answer("Size", "How big is the shape? (x*x) ")
+    size = get_answer("Size", "How big is the shape? (height) ")
     return size
     
 def make_square(size):
@@ -38,9 +38,21 @@ def make_square(size):
             print("x", end=" ")
         print()
         
+def make_triangle(size):
+    for i in range(size):
+        for j in range(size - i - 1):
+            print(" ", end="")
+        for k in range((i*2)+1):
+            print("x", end="")
+        print()
+            
+            
+        
 def draw(shape, size):
-    if shape == Shape.SQUARE:
+    if shape == Shape.SQUARE.value:
         make_square(size)
+    elif shape == Shape.TRIANGLE.value:
+        make_triangle(size)
     else:
         print("Work in progress")
     
