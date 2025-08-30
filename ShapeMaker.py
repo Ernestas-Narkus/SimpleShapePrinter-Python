@@ -1,4 +1,10 @@
+from enum import Enum
 # shape maker: square, triangle, circle
+
+class Shape(Enum)
+    SQUARE = 1
+    TRIANGLE = 2 
+    CIRCLE = 3
 
 def get_answer(mode, message):
     answered = False
@@ -6,7 +12,7 @@ def get_answer(mode, message):
         try:
             answer = int(input(message))
             if mode == "Shape":
-                if answer == 1 or answer == 2 or answer == 3:
+                if answer == Shape.SQUARE or answer == Shape.TRIANGLE or answer == Shape.CIRCLE:
                     answered = True
                 else:
                     print("Pick one of the options")
@@ -33,12 +39,10 @@ def make_square(size):
         print()
         
 def draw(shape, size):
-    if shape == 1:
+    if shape == Shape.SQUARE:
         make_square(size)
     else:
         print("Work in progress")
-    
-    
     
 def main():
     shape = get_shape()
