@@ -46,8 +46,6 @@ def make_triangle(size):
             print("x", end="")
         print()
             
-            
-        
 def draw(shape, size):
     if shape == Shape.SQUARE.value:
         make_square(size)
