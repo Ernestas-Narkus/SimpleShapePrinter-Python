@@ -45,6 +45,10 @@ def make_triangle(size):
         for k in range((i*2)+1):
             print("x", end="")
         print()
+      
+def make_circle(size):
+    # look at designs more
+    # more of diamond than rectangle
             
 def draw(shape, size):
     if shape == Shape.SQUARE.value:
