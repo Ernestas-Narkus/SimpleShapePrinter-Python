@@ -47,16 +47,41 @@ def make_triangle(size):
         print()
       
 def make_circle(size):
-    # look at designs more
-    # more of diamond than rectangle
+    if size%2 == 0:
+        start = 2
+    else:
+        start = 3
+    
+    for i in range(int(size/2)):
+        for j in range(int(size/2) - 1 - i):
+            print(" ", end=" ")
+        # does too many for odd
+        for k in range(start + i * start):
+            print("x", end=" ")
+        print()
+            
+    if start == 3:
+        for l in range(size):
+            print("x", end=" ")
+        print()
+            
+    for i in range(int(size/2) - 1, -1, -1):
+        for j in range(int(size/2) - i - 1):
+            print(" ", end=" ")
+        # does too many for odd
+        for k in range(start + i * start):
+            print("x", end=" ")
+        print()
             
 def draw(shape, size):
     if shape == Shape.SQUARE.value:
         make_square(size)
     elif shape == Shape.TRIANGLE.value:
         make_triangle(size)
+    elif shape == Shape.CIRCLE.value:
+        make_circle(size)
     else:
-        print("Work in progress")
+        print("Theres been a mistake")
     
 def main():
     shape = get_shape()
